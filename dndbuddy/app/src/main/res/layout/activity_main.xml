@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context="dndbuddy.app.dndbuddy.MainActivity">
 
+    <Button
+        android:id="@+id/viewCharacter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View/Edit Character"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <Button
+        android:id="@+id/addCharacter"
+        android:layout_width="177dp"
+        android:layout_height="45dp"
+        android:text="Add Character"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="160dp" />
+
+    <Button
+        android:id="@+id/notes"
+        android:layout_width="176dp"
+        android:layout_height="46dp"
+        android:text="Campaign Notes"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="272dp" />
 </android.support.constraint.ConstraintLayout>
