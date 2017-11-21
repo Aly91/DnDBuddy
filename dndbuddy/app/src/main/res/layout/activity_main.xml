@@ -12,21 +12,30 @@
         android:layout_height="wrap_content"
         android:text="View/Edit Character"
         tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="34dp" />
+        tools:layout_editor_absoluteY="179dp" />
 
     <Button
         android:id="@+id/addCharacter"
         android:layout_width="177dp"
         android:layout_height="45dp"
         android:text="Add Character"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="160dp" />
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="273dp" />
 
     <Button
         android:id="@+id/notes"
         android:layout_width="176dp"
         android:layout_height="46dp"
         android:text="Campaign Notes"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="272dp" />
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="363dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="254dp"
+        android:layout_height="112dp"
+        app:srcCompat="@drawable/applogo"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="34dp" />
+
 </android.support.constraint.ConstraintLayout>
