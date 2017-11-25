@@ -4,13 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dndbuddy.app.dndbuddy.characterActivity">
+    tools:context="dndbuddy.app.dndbuddy.CharacterActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView8"
+        android:layout_width="256dp"
+        android:layout_height="18dp"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="91dp" />
+
+    <TextView
+        android:id="@+id/displayRace"
+        android:layout_width="256dp"
+        android:layout_height="18dp"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="51dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/race"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Race"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="51dp" />
+
+    <TextView
+        android:id="@+id/Class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Class"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="91dp" />
+
+    <TextView
+        android:id="@+id/Skills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="122dp" />
+
+
+
+        <LinearLayout
+            android:layout_width="368dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="8dp" />
+
+    <TextView
+        android:id="@+id/displayName"
+        android:layout_width="256dp"
+        android:layout_height="18dp"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        tools:layout_editor_absoluteX="80dp"
         tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>

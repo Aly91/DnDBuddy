@@ -4,6 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dndbuddy.app.dndbuddy.campaignActivity">
+    tools:context="dndbuddy.app.dndbuddy.CampaignActivity">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="304dp"
+        android:layout_height="420dp"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="Keep track of your adventures, spells used, inventory.etc....."
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="75dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write your notes below"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="35dp" />
 
 </android.support.constraint.ConstraintLayout>
