@@ -13,11 +13,20 @@ import android.util.Log;
 public class AppDB {
 
     // database column NAMES e.g. rowID
-    private static final String KEY_ROWID 	    = "_id";
-    private static final String KEY_WHATEVER_YOUR_COLUMN_NAME_IS = "";
+    private static final String KEY_ROWID  = "_id";
+    private static final String KEY_NAME = "Name";
+    private static final String KEY_CLASS = "Class";
+    private static final String KEY_RACE = "Race";
+    private static final String KEY_HITPOINTS = "Hit Points";
+    private static final String KEY_STRENTHSKILL = "Strengh";
+    private static final String KEY_DEXTERITYSKILL = "Dexterity";
+    private static final String KEY_CONSTITUTIONSKILL = "Constitution";
+    private static final String KEY_INTELLIGENCESKILL = "Intelligence";
+    private static final String KEY_WISDOMSKILL = "Wisdom";
+    private static final String KEY_CHARISMASKILL = "Charisma";
 
     private static final String DATABASE_TABLE 	= "Characters";
-    private static final String DATABASE_TABLE2 = "Notes";
+    //private static final String DATABASE_TABLE2 = "Notes";
 
     private static final String DATABASE_NAME 	= "AppDB";
     private static final int DATABASE_VERSION 	= 1; // since it is the first version of the dB
@@ -25,7 +34,8 @@ public class AppDB {
 
     // SQL statement to create the database
     private static final String DATABASE_CREATE =
-            "SQL to create table(s)";
+            "create table“ + DATABASE_TABLE + “ (_id integer primary key autoincrement, " + "Name text not null,“ + “ Class text not null, " + "Race text not null" + "Hit Points int not null" +
+                    "Strength int not null"+)";";
 
     private final Context context;
     private DatabaseHelper databaseHelper;
@@ -52,7 +62,7 @@ public class AppDB {
         //
         DatabaseHelper(Context context)
         {
-            super(context, DATABASE_NAME, null, DATABASE_VERSION);
+            super(context, DATABASE_NAME, , DATABASE_VERSION);
         }
 
 
@@ -84,7 +94,7 @@ public class AppDB {
     }
 
     // an example of a database insert.  This is for a particular database that has three columns
-    public long insertPerson(String firstName, String surname, String city)
+    public long insertCharacter (String name, String characterClass, String race)
     {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_WHATEVER_YOUR_COLUMN_NAME_IS, firstName);
