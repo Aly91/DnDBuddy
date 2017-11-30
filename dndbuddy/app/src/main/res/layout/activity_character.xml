@@ -8,7 +8,17 @@
     tools:context="dndbuddy.app.dndbuddy.CharacterActivity">
 
     <TextView
-        android:id="@+id/DisplayWisdom"
+        android:id="@+id/Attacks"
+        android:layout_width="226dp"
+        android:layout_height="55dp"
+        android:layout_alignStart="@+id/Spells"
+        android:layout_below="@+id/Spells"
+        android:layout_marginTop="26dp"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/displayWisdom"
         android:layout_width="55dp"
         android:layout_height="45dp"
         android:background="@android:color/white"
@@ -38,8 +48,8 @@
         android:textColor="@android:color/black"
         tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="199dp"
-        android:layout_alignBaseline="@+id/DisplayWisdom"
-        android:layout_alignBottom="@+id/DisplayWisdom"
+        android:layout_alignBaseline="@+id/displayWisdom"
+        android:layout_alignBottom="@+id/displayWisdom"
         android:layout_alignEnd="@+id/strength" />
 
     <TextView
@@ -50,8 +60,8 @@
         android:textColor="@android:color/black"
         tools:layout_editor_absoluteX="321dp"
         tools:layout_editor_absoluteY="199dp"
-        android:layout_alignBaseline="@+id/DisplayWisdom"
-        android:layout_alignBottom="@+id/DisplayWisdom"
+        android:layout_alignBaseline="@+id/displayWisdom"
+        android:layout_alignBottom="@+id/displayWisdom"
         android:layout_alignStart="@+id/displayConstitution" />
 
     <TextView
@@ -73,9 +83,9 @@
         android:textColor="@android:color/black"
         tools:layout_editor_absoluteX="80dp"
         tools:layout_editor_absoluteY="91dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/displayName"
-        android:layout_alignStart="@+id/displayName"
-        android:layout_marginTop="13dp" />
+        android:layout_alignStart="@+id/displayName" />
 
     <TextView
         android:id="@+id/displayRace"
@@ -97,8 +107,6 @@
         tools:layout_editor_absoluteX="4dp"
         tools:layout_editor_absoluteY="16dp"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/listView"
-        android:layout_toEndOf="@+id/listView"
         android:layout_marginStart="8dp" />
 
     <TextView
@@ -129,7 +137,7 @@
         android:text="Skills"
         tools:layout_editor_absoluteX="176dp"
         tools:layout_editor_absoluteY="131dp"
-        android:layout_below="@+id/textView21"
+        android:layout_below="@+id/displayHitPoints"
         android:layout_centerHorizontal="true" />
 
 
@@ -168,7 +176,7 @@
         android:layout_marginTop="22dp" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/displayHitPoints"
         android:layout_width="37dp"
         android:layout_height="27dp"
         android:background="@android:color/white"
@@ -212,7 +220,7 @@
         android:layout_height="wrap_content"
         android:text="Intelligence"
         android:layout_below="@+id/displayIntelligence"
-        android:layout_alignEnd="@+id/textView21"
+        android:layout_alignEnd="@+id/displayHitPoints"
         android:layout_marginEnd="16dp" />
 
     <TextView
@@ -220,7 +228,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wisdom"
-        android:layout_below="@+id/DisplayWisdom"
+        android:layout_below="@+id/displayWisdom"
         android:layout_alignEnd="@+id/dexterity" />
 
     <TextView
@@ -230,5 +238,31 @@
         android:text="Charisma"
         android:layout_below="@+id/displayCharisma"
         android:layout_alignStart="@+id/displayCharisma" />
+
+    <TextView
+        android:id="@+id/spellsandattacks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="Spells and Attacks"
+        android:layout_below="@+id/wisdom"
+        android:layout_toStartOf="@+id/constitution" />
+
+    <TextView
+        android:id="@+id/Spells"
+        android:layout_width="226dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/spellsandattacks"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/textView20"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black" />
+
+    <Spinner
+        android:id="@+id/viewCharacter"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

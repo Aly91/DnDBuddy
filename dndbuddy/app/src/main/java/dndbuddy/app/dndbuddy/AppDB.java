@@ -8,25 +8,28 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.jar.Attributes;
 
+//Based on database code example given in class
 
-public class AppDB {
+public class AppDB  {
 
     // database column NAMES e.g. rowID
     private static final String KEY_ROWID  = "_id";
     private static final String KEY_NAME = "Name";
-    private static final String KEY_CLASS = "Class";
+    private static final String KEY_CHARACTERCLASS = "Class";
     private static final String KEY_RACE = "Race";
-    private static final String KEY_HITPOINTS = "Hit Points";
-    private static final String KEY_STRENTHSKILL = "Strengh";
+    private static final String KEY_HITPOINTS = "HitPoints";
+    private static final String KEY_STRENGTHSKILL = "Strengh";
     private static final String KEY_DEXTERITYSKILL = "Dexterity";
     private static final String KEY_CONSTITUTIONSKILL = "Constitution";
     private static final String KEY_INTELLIGENCESKILL = "Intelligence";
     private static final String KEY_WISDOMSKILL = "Wisdom";
     private static final String KEY_CHARISMASKILL = "Charisma";
 
+
     private static final String DATABASE_TABLE 	= "Characters";
-    //private static final String DATABASE_TABLE2 = "Notes";
+
 
     private static final String DATABASE_NAME 	= "AppDB";
     private static final int DATABASE_VERSION 	= 1; // since it is the first version of the dB
@@ -34,8 +37,8 @@ public class AppDB {
 
     // SQL statement to create the database
     private static final String DATABASE_CREATE =
-            "create table“ + DATABASE_TABLE + “ (_id integer primary key autoincrement, " + "Name text not null,“ + “ Class text not null, " + "Race text not null" + "Hit Points int not null" +
-                    "Strength int not null"+)";";
+            "create table“ + DATABASE_TABLE + “ (_id integer primary key autoincrement, " + "Name text not null,“ + “ Class text not null, " + "Race text not null" + "HitPoints int not null" +
+                    "Strength int not null"+ "Dexterity int not null" + "Constitution int not null" + "Intelligence int not null" + "Wisdom int not null" + "Charisma int not null);";
 
     private final Context context;
     private DatabaseHelper databaseHelper;
@@ -44,25 +47,33 @@ public class AppDB {
     // Constructor
     public AppDB (Context ctx)
     {
-        //
+
         this.context 	= ctx;
        databaseHelper	= new DatabaseHelper(context);
     }
 
+
+
     public AppDB open() throws SQLException
     {
-        db     = databaseHelper.getWritableDatabase();
+        db  = databaseHelper.getWritableDatabase();
         return this;
 
     }
+    public void close()
 
-    // nested dB helper class
+    {
+        databaseHelper.close();
+    }
+
+
+
     private static class DatabaseHelper extends SQLiteOpenHelper
     {
         //
         DatabaseHelper(Context context)
         {
-            super(context, DATABASE_NAME, , DATABASE_VERSION);
+            super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
 
 
@@ -71,7 +82,7 @@ public class AppDB {
         public void onCreate(SQLiteDatabase db)
         {
 
-            // Execute SQL to create your tables (call the execSQL method of the SQLLiteDatabase class, passing in your create table(s) SQL)
+            db.execSQL(DATABASE_CREATE); //execute the create table SQL statment
         }
 
         @Override
@@ -79,53 +90,88 @@ public class AppDB {
         public void onUpgrade(SQLiteDatabase db, int oldVersion,
                               int newVersion)
         {
-            // dB structure change..
-
+            // For future modification to the database.
         }
-    }   // end nested class
-
-
-
-    // remainder of the Database Example methods to "use" the database
-    public void close()
-
-    {
-        databaseHelper.close();
     }
 
-    // an example of a database insert.  This is for a particular database that has three columns
-    public long insertCharacter (String name, String characterClass, String race)
+
+   // Insert method that inserts the values fro the below columns
+    public long insertCharacter (String Name, String Class, String Race, int HitPoints, int Strength, int Dexterity,int Constitution, int Intellegence,int Wisdom, int Charisma)
     {
         ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_WHATEVER_YOUR_COLUMN_NAME_IS, firstName);
-        // put your own column/ values onto the Context Values object
+        initialValues.put(KEY_NAME, Name);
+        initialValues.put(KEY_CHARACTERCLASS , Class);
+        initialValues.put(KEY_RACE, Race);
+        initialValues.put(KEY_HITPOINTS, HitPoints);
+        initialValues.put(KEY_STRENGTHSKILL, Strength);
+        initialValues.put(KEY_DEXTERITYSKILL,Dexterity);
+        initialValues.put(KEY_CONSTITUTIONSKILL, Constitution);
+        initialValues.put(KEY_INTELLIGENCESKILL, Intellegence);
+        initialValues.put(KEY_WISDOMSKILL, Wisdom);
+        initialValues.put(KEY_CHARISMASKILL, Charisma);
+
 
         return db.insert(DATABASE_TABLE, null, initialValues);
     }
 
-    // an example of a custom method to query a database.
 
-    public Cursor exampleCustomQuery(long rowId) throws SQLException
-    {
-        // The query method from SQLLiteDatabase class has various parameters that define the query: the database table, the string of columns names to be returned and
-        // the last set of parameters allow you to specify "where" conditions for the query.  In this case, there is just one "where" clause. The others are unused.
 
-        Cursor mCursor =   db.query(true, DATABASE_TABLE, new String[]
-                        {
-                                // this String array is the 2nd paramter to the query method - and is the list of columns you want to return
-                                KEY_WHATEVER_YOUR_COLUMN_NAME_IS
+    public Cursor getAllCharacters(long rowId) throws SQLException {
+        return db.query(DATABASE_TABLE, new String[]{
+                        KEY_ROWID,
+                        KEY_NAME,
+                        KEY_CHARACTERCLASS,
+                        KEY_RACE,
+                        KEY_HITPOINTS,
+                        KEY_STRENGTHSKILL,
+                        KEY_DEXTERITYSKILL,
+                        KEY_CONSTITUTIONSKILL,
+                        KEY_INTELLIGENCESKILL,
+                        KEY_WISDOMSKILL},
+                null,
+                null,
+                null,
+                null,
+                null);
+    }
 
-                        },
-                KEY_ROWID + "=" + rowId,  null, null, null, null, null);
+    public Cursor getCharacter(long rowId) throws SQLException {
 
-        if (mCursor != null)
-        {
+
+                        Cursor mCursor =
+                        db.query(true, DATABASE_TABLE, new String[]{
+                                        KEY_ROWID,
+                                        KEY_NAME,
+                                        KEY_CHARACTERCLASS,
+                                        KEY_RACE,
+                                        KEY_HITPOINTS,
+                                        KEY_STRENGTHSKILL,
+                                        KEY_DEXTERITYSKILL,
+                                        KEY_CONSTITUTIONSKILL,
+                                        KEY_INTELLIGENCESKILL,
+                                        KEY_WISDOMSKILL
+
+                                },
+                                KEY_ROWID + "=" + rowId,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null);
+
+
+        if (mCursor != null) {
             mCursor.moveToFirst();
         }
         return mCursor;
+        }
+
+
     }
 
-}// end class
+
+
+
 
     
 
